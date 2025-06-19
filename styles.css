@@ -12,7 +12,6 @@
   --text-value-display: #686868;
 
   --slider-thumb: #999999;
-  --border-light: #e0e0e0;
 
   /* Shadows */
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -21,7 +20,6 @@
   /* Spacing */
   --spacing-xs: 2px;
   --spacing-sm: 8px;
-  --spacing-md: 12px;
   --spacing-lg: 20px;
   --spacing-xl: 28px;
   --spacing-xxl: 32px;
@@ -33,7 +31,6 @@
 
   /* Font sizes */
   --font-xs: 12px;
-  --font-sm: 13px;
   --font-md: 16px;
   --font-lg: 20px;
 
@@ -45,8 +42,6 @@
   --slider-height: 32px;
   --thumb-width: 4px;
   --thumb-height: 16px;
-  --thumb-border: 2px;
-  --value-display-offset: -36px;
 }
 
 body {
@@ -108,7 +103,7 @@ label {
   position: relative;
   width: 100%;
   height: var(--slider-height);
-  background: var(--bg-slider-track);
+  background: var(--bg-input);
   border-radius: var(--radius-sm);
   overflow: hidden;
   box-sizing: border-box;
@@ -149,7 +144,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: calc(var(--radius-sm) - 3px);
   pointer-events: none;
   white-space: nowrap;
-  /* transition: width 0.1s ease-out; */
+  transition: width 0.1s ease-out;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -171,6 +166,7 @@ input[type="range"]::-webkit-slider-thumb {
   transition: transform 0.1s ease-out;
 }
 
+/* Thumb */
 .value-display::after {
   content: "";
   position: absolute;
