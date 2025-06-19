@@ -69,7 +69,7 @@ class RollingCounter {
             digitsContainer.style.transition = 'none';
             digitsContainer.style.width = `${newWidth}px`;
             setTimeout(() => {
-                digitsContainer.style.transition = 'width 0.3s ease-out';
+                digitsContainer.style.transition = 'width 0.2s ease-out';
             }, 1);
         }
         
