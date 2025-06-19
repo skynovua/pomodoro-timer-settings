@@ -1,10 +1,8 @@
-
 :root {
   /* Colors */
   --bg-primary: #6b6b6b;
   --bg-secondary: #ffffff;
   --bg-value-display: #f8f8f8;
-  --bg-slider-track: #e8e8e8;
   
   --text-primary: #1a1a1a;
   --text-secondary: #676767;
@@ -105,34 +103,35 @@ label {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Min/Max labels */
-.slider-wrapper::before,
-.slider-wrapper::after {
-  position: absolute;
-  top: var(--spacing-xl);
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: var(--slider-height);
+  background: var(--bg-slider-track);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Range labels */
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-sm);
   font-size: var(--font-xs);
   color: var(--text-range-labels);
-}
-
-.slider-wrapper::before {
-  content: attr(data-min);
-  left: 0;
-}
-
-.slider-wrapper::after {
-  content: attr(data-max);
-  right: 0;
 }
 
 input[type="range"] {
   width: 100%;
   height: var(--slider-height);
   appearance: none;
-  background: var(--bg-slider-track);
+  background: transparent;
   border-radius: var(--radius-sm);
   outline: none;
   margin: 0;
-  cursor: col-resize;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -144,6 +143,8 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: var(--shadow-thumb);
   border: var(--thumb-border) solid var(--bg-secondary);
   cursor: col-resize;
+  position: relative;
+  z-index: 4;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -158,17 +159,22 @@ input[type="range"]::-moz-range-thumb {
 
 .value-display {
   position: absolute;
-  top: var(--value-display-offset);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-value-display);
-  border: 1px solid var(--border-light);
-  padding: 6px var(--spacing-md);
-  border-radius: var(--radius-md);
-  font-size: var(--font-sm);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--slider-thumb);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
   font-weight: var(--font-weight-medium);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-value);
+  color: var(--bg-secondary);
   pointer-events: none;
   white-space: nowrap;
+  transition: width 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  padding-left: var(--spacing-sm);
+  box-sizing: border-box;
+  z-index: 1;
+  min-width: 0;
 }
