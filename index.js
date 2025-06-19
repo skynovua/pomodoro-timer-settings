@@ -1,14 +1,10 @@
-const sliders = [
-    { id: "focus", unit: " min" },
-    { id: "short-break", unit: " min" },
-    { id: "long-break", unit: " min" },
-    { id: "rounds", unit: "" },
-];
+// Отримуємо всі слайдери та їх data-атрибути
+const sliders = document.querySelectorAll('input[type="range"][data-unit]');
 
 // Динамічне оновлення числа
-sliders.forEach(({ id, unit }) => {
-    const slider = document.getElementById(id);
-    const display = document.getElementById(`${id}-value`);
+sliders.forEach((slider) => {
+    const unit = slider.dataset.unit; // Отримуємо одиницю з data-атрибута
+    const display = document.getElementById(`${slider.id}-value`);
 
     slider.addEventListener("input", () => {
         const value = slider.value;
