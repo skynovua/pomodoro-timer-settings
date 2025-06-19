@@ -1,12 +1,12 @@
 :root {
   /* Colors */
   --bg-primary: #6b6b6b;
-  --bg-secondary: #f3f3f5;
+  --bg-secondary: #f6f6f6;
   --bg-value-display: #fefefe;
   --bg-input: #ededed;
 
   --text-primary: #1a1a1a;
-  --text-secondary: #676767;
+  --text-secondary: #7c7c7c;
   --text-muted: #8a8a8a;
   --text-range-labels: #a0a0a0;
   --text-value-display: #686868;
@@ -15,7 +15,7 @@
 
   /* Shadows */
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --shadow-value: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-value: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   /* Spacing */
   --spacing-xs: 2px;
