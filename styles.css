@@ -182,4 +182,5 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: var(--spacing-xs);
   cursor: col-resize;
   z-index: 4;
+  transition: transform 0.5s ease-out;
 }
