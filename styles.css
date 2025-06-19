@@ -152,7 +152,6 @@ input[type="range"]::-webkit-slider-thumb {
   /* transition: width 0.1s ease-out; */
   display: flex;
   align-items: center;
-  padding-left: var(--spacing-sm);
   box-sizing: border-box;
   box-shadow: var(--shadow-value);
   z-index: 1;
@@ -161,7 +160,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 .value-display span {
   position: absolute;
-  left: 6px;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
   top: 50%;
   transform: translateY(-50%);
   display: inline-block;

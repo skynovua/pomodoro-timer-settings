@@ -37,14 +37,24 @@ sliders.forEach((slider) => {
         // Встановлюємо ширину
         display.style.width = `${targetWidth}px`;
         
-        // Показуємо текст тільки якщо достатньо місця (мінімум 60px)
-        if (targetWidth > 60) {
-            displayValue.textContent = displayText;
-            display.style.opacity = '1';
-        } else {
-            displayValue.textContent = '';
-            display.style.opacity = '0.8';
-        }
+        // Оновлюємо текст
+        displayValue.textContent = displayText;
+        
+        // Чекаємо на наступний кадр, щоб отримати правильні розміри
+        requestAnimationFrame(() => {
+            const spanWidth = displayValue.offsetWidth;
+            const displayWidth = targetWidth;
+            const availableSpace = displayWidth - 20; // враховуємо padding
+            
+            if (spanWidth > availableSpace) {
+                // Span не міститься - переміщуємо його правіше value-display
+                displayValue.style.left = `${displayWidth + 5}px`;
+            } else {
+                displayValue.style.left = 0;
+            }
+        });
+        
+        display.style.opacity = '1';
         
         // Позиціонуємо
         display.style.left = '3px';
