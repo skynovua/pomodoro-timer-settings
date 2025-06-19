@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Slider Design</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Pomodoro Timer Settings</title>
+    <link rel="stylesheet" href="src/styles/main.css" />
   </head>
   <body>
     <div class="settings">
       <h2>Timing settings</h2>
       <p>Adjust the timings of your pomodoro sessions</p>
 
-      <!-- Focus Duration -->
       <div class="setting">
         <label for="focus">Focus duration</label>
         <div class="slider-wrapper">
@@ -26,7 +25,6 @@
         </div>
       </div>
 
-      <!-- Short Break Duration -->
       <div class="setting">
         <label for="short-break">Short break duration</label>
         <div class="slider-wrapper">
@@ -41,7 +39,6 @@
         </div>
       </div>
 
-      <!-- Long Break Duration -->
       <div class="setting">
         <label for="long-break">Long break duration</label>
         <div class="slider-wrapper">
@@ -56,7 +53,6 @@
         </div>
       </div>
 
-      <!-- Rounds -->
       <div class="setting">
         <label for="rounds">Rounds</label>
         <div class="slider-wrapper">
@@ -72,6 +68,7 @@
       </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="src/components/rolling-counter.js"></script>
+    <script src="src/components/pomodoro-slider-controller.js"></script>
   </body>
 </html>

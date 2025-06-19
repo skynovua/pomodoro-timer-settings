@@ -36,7 +36,7 @@ const hotReloadScript = `
 `;
 
 const server = http.createServer((req, res) => {
-  let filePath = req.url === '/' ? '/index.html' : req.url;
+  let filePath = req.url === '/' ? '/pomodoro-settings.html' : req.url;
   filePath = path.join(__dirname, filePath);
 
   const extname = path.extname(filePath);

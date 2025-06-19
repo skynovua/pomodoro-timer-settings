@@ -1,15 +1,23 @@
 {
-  "name": "test",
+  "name": "pomodoro-timer-settings",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Interactive Pomodoro timer settings with animated rolling counter sliders",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "settings",
+    "sliders",
+    "animation",
+    "rolling-counter"
+  ],
   "author": "",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
   "dependencies": {
     "ws": "^8.18.2"
   }
