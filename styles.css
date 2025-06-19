@@ -110,6 +110,7 @@ label {
   background: var(--bg-slider-track);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Range labels */
