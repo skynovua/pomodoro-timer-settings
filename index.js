@@ -55,6 +55,24 @@ class RollingCounter {
         const numValue = parseInt(value) || 0;
         const paddedValue = Math.abs(numValue).toString().padStart(this.digits, '0');
         
+        // Обчислюємо кількість значущих цифр (без ведучих нулів)
+        const actualDigits = Math.max(1, numValue.toString().length);
+        const digitsContainer = this.container.querySelector('.digits-container');
+        
+        // Анімуємо ширину контейнера на основі кількості цифр
+        const digitWidth = 8; // ширина однієї цифри в px
+        const newWidth = actualDigits * digitWidth;
+        
+        if (animate) {
+            digitsContainer.style.width = `${newWidth}px`;
+        } else {
+            digitsContainer.style.transition = 'none';
+            digitsContainer.style.width = `${newWidth}px`;
+            setTimeout(() => {
+                digitsContainer.style.transition = 'width 0.3s ease-out';
+            }, 1);
+        }
+        
         // Оновлюємо одиницю виміру
         this.unitElement.textContent = unit;
         this.unit = unit;
@@ -63,6 +81,14 @@ class RollingCounter {
             const digit = parseInt(paddedValue[i]);
             const wheel = this.digitElements[i];
             const translateY = -digit * 14; // 14px висота одної цифри
+            
+            // Ховаємо ведучі нулі, окрім останньої цифри
+            const digitContainer = wheel.parentElement;
+            if (i < this.digits - actualDigits) {
+                digitContainer.style.display = 'none';
+            } else {
+                digitContainer.style.display = 'flex';
+            }
             
             if (animate) {
                 // Додаємо невелику затримку для кожної цифри для красивого ефекту
