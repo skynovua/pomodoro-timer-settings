@@ -77,9 +77,9 @@ sliders.forEach((slider) => {
             
             if (spanWidth > availableSpace) {
                 // Span не міститься - переміщуємо його правіше value-display
-                displayValue.style.left = `${displayWidth + 5}px`;
+                displayValue.style.transform = `translate(${displayWidth}px, -50%)`; // 10px для відступу
             } else {
-                displayValue.style.left = 0;
+                displayValue.style.transform = 'translate(0, -50%)'; // Відновлюємо позицію
             }
         });
         

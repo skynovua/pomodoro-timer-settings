@@ -168,6 +168,7 @@ input[type="range"]::-webkit-slider-thumb {
   color: var(--text-value-display);
   font-size: var(--font-xs);
   font-weight: var(--font-weight-medium);
+  transition: transform 0.1s ease-out;
 }
 
 .value-display::after {
@@ -182,5 +183,4 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: var(--spacing-xs);
   cursor: col-resize;
   z-index: 4;
-  transition: transform 0.5s ease-out;
 }
