@@ -5,6 +5,7 @@ const sliders = document.querySelectorAll('input[type="range"][data-unit]');
 sliders.forEach((slider) => {
     const unit = slider.dataset.unit; // Отримуємо одиницю з data-атрибута
     const display = document.getElementById(`${slider.id}-value`);
+    const displayValue = display.querySelector('span');
 
     slider.addEventListener("input", () => {
         const value = slider.value;
@@ -38,10 +39,10 @@ sliders.forEach((slider) => {
         
         // Показуємо текст тільки якщо достатньо місця (мінімум 60px)
         if (targetWidth > 60) {
-            display.textContent = displayText;
+            displayValue.textContent = displayText;
             display.style.opacity = '1';
         } else {
-            display.textContent = '';
+            displayValue.textContent = '';
             display.style.opacity = '0.8';
         }
         

@@ -4,20 +4,20 @@
   --bg-secondary: #f3f3f5;
   --bg-value-display: #fefefe;
   --bg-input: #ededed;
-  
+
   --text-primary: #1a1a1a;
   --text-secondary: #676767;
   --text-muted: #8a8a8a;
   --text-range-labels: #a0a0a0;
   --text-value-display: #686868;
-  
+
   --slider-thumb: #999999;
   --border-light: #e0e0e0;
-  
+
   /* Shadows */
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
   --shadow-value: 0 2px 32px rgba(0, 0, 0, 0.1);
-  
+
   /* Spacing */
   --spacing-xs: 2px;
   --spacing-sm: 8px;
@@ -26,21 +26,21 @@
   --spacing-xl: 28px;
   --spacing-xxl: 32px;
   --spacing-xxxl: 40px;
-  
+
   /* Border radius */
   --radius-sm: 6px;
   --radius-lg: 24px;
-  
+
   /* Font sizes */
   --font-xs: 12px;
   --font-sm: 13px;
   --font-md: 16px;
   --font-lg: 20px;
-  
+
   /* Font weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
-  
+
   /* Component sizes */
   --slider-height: 32px;
   --thumb-width: 4px;
@@ -50,7 +50,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: var(--spacing-xxxl) var(--spacing-lg);
   background-color: var(--bg-primary);
@@ -136,7 +137,6 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-thumb {
   opacity: 0;
-
 }
 
 .value-display {
@@ -147,9 +147,6 @@ input[type="range"]::-webkit-slider-thumb {
   height: calc(var(--slider-height) - 6px);
   background: var(--bg-value-display);
   border-radius: calc(var(--radius-sm) - 3px);
-  font-size: var(--font-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--text-value-display);
   pointer-events: none;
   white-space: nowrap;
   /* transition: width 0.1s ease-out; */
@@ -162,8 +159,19 @@ input[type="range"]::-webkit-slider-thumb {
   min-width: 0;
 }
 
+.value-display span {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  color: var(--text-value-display);
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-medium);
+}
+
 .value-display::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: 4px;
