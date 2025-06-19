@@ -13,13 +13,13 @@ sliders.forEach((slider) => {
         
         // Розрахунок відсотка для ширини
         const percentage = (value - slider.min) / (slider.max - slider.min);
-        const sliderWidth = slider.offsetWidth;
         
-        // Встановлюємо ширину display як відсоток від слайдера
-        display.style.width = `${percentage * 100}%`;
+        // Встановлюємо ширину display з урахуванням відступів через calc()
+        display.style.width = `calc(${percentage * 100}% - 6px)`;
         
         // Показуємо текст тільки якщо достатньо місця (мінімум 60px)
-        const currentWidth = (percentage * sliderWidth);
+        const sliderWidth = slider.offsetWidth;
+        const currentWidth = (percentage * sliderWidth) - 6; // Враховуємо відступи
         if (currentWidth > 60) {
             display.textContent = displayText;
             display.style.opacity = '1';
@@ -29,7 +29,7 @@ sliders.forEach((slider) => {
         }
         
         // Позиціонуємо
-        display.style.left = '2px';
+        display.style.left = '3px';
         display.style.transform = 'none';
     });
 
