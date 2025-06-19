@@ -143,7 +143,6 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: calc(var(--radius-sm) - 3px);
   pointer-events: none;
   white-space: nowrap;
-  transition: width 0.1s ease-out;
   display: flex;
   align-items: center;
   box-sizing: border-box;
