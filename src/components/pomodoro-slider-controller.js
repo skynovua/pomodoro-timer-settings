@@ -9,11 +9,11 @@ const INPUT_PADDING = 6; // Padding for the input container
 sliders.forEach((slider) => {
     const unit = slider.dataset.unit;
     const display = document.getElementById(`${slider.id}-value`);
-    const displayValue = display.querySelector('span');
+    const rollingCounterDisplay = display.querySelector('.rolling-counter');
 
     const maxValue = parseInt(slider.max);
     const digits = Math.max(2, maxValue.toString().length);
-    const rollingCounter = new RollingCounter(displayValue, digits);
+    const rollingCounter = new RollingCounter(rollingCounterDisplay, digits);
     rollingCounters.set(slider.id, rollingCounter);
 
     const initialValue = parseInt(slider.value);
@@ -45,14 +45,14 @@ sliders.forEach((slider) => {
         display.style.width = `${targetWidth}px`;
 
         requestAnimationFrame(() => {
-            const spanWidth = displayValue.offsetWidth;
+            const rollingCounterWidth = rollingCounterDisplay.offsetWidth;
             const displayWidth = targetWidth;
             const availableSpace = displayWidth - 20;
 
-            if (spanWidth > availableSpace) {
-                displayValue.style.transform = `translate(${displayWidth}px, -50%)`;
+            if (rollingCounterWidth > availableSpace) {
+                rollingCounterDisplay.style.transform = `translate(${displayWidth}px, -50%)`;
             } else {
-                displayValue.style.transform = 'translate(0, -50%)';
+                rollingCounterDisplay.style.transform = 'translate(0, -50%)';
             }
         });
 

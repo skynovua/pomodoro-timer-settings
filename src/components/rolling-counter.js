@@ -13,7 +13,6 @@ class RollingCounter {
 
     init() {
         this.container.innerHTML = '';
-        this.container.classList.add('rolling-counter');
         
         const digitsContainer = document.createElement('div');
         digitsContainer.className = 'digits-container';
