@@ -1,7 +1,3 @@
-/**
- * Pomodoro slider controller with rolling counter animation
- */
-
 const sliders = document.querySelectorAll('input[type="range"][data-unit]');
 const rollingCounters = new Map();
 const INPUT_PADDING = 6; // Padding for the input container
@@ -33,14 +29,18 @@ sliders.forEach((slider) => {
         const range = max - min;
         const totalSteps = range / step;
 
-        const containerWidth = slider.parentElement.offsetWidth - INPUT_PADDING; // Subtract 6px for padding
-        const stepDistance = containerWidth / (totalSteps + 1); // Add 1px for better alignment
-
-        const leftPadding = Math.round(stepDistance);
-        const minWidth = leftPadding;        
-
-        const availableWidth = containerWidth - leftPadding;
-        const targetWidth = Math.max(minWidth, percentage * availableWidth + leftPadding);        
+        const containerWidth = slider.parentElement.offsetWidth - INPUT_PADDING;
+        
+        // Set minimum width and calculate available space for steps
+        const minWidth = 12;
+        const availableWidth = containerWidth - minWidth;
+        
+        // Calculate step width in the available space
+        const stepWidth = availableWidth / totalSteps;
+        const currentStep = (value - min) / step;
+        
+        // Calculate target width: minimum + proportional step width
+        const targetWidth = minWidth + (currentStep * stepWidth);        
 
         display.style.width = `${targetWidth}px`;
 
