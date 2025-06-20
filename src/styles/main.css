@@ -139,6 +139,11 @@ input[type="range"]::-webkit-slider-thumb {
   opacity: 0;
 }
 
+input[type="range"]:active ~ .value-display::after {
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: var(--shadow-value);
+}
+
 .value-display {
   position: absolute;
   top: 3px;
@@ -169,6 +174,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: var(--spacing-xs);
   cursor: col-resize;
   z-index: 4;
+  transition: transform 0.25s cubic-bezier(0.34, 1.5, 0.64, 1)
 }
 
 .rolling-counter {

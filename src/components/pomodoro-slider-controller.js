@@ -20,9 +20,7 @@ sliders.forEach((slider) => {
         const unit = slider.dataset.unit;
 
         rollingCounter.setNumber(value, unit, true);
-
-        const percentage = (value - slider.min) / (slider.max - slider.min);
-
+        
         const min = parseFloat(slider.min);
         const max = parseFloat(slider.max);
         const step = parseFloat(slider.step) || 1;
