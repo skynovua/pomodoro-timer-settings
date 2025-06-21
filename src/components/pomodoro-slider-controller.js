@@ -1,5 +1,4 @@
 const sliders = document.querySelectorAll('input[type="range"][data-unit]');
-const rollingCounters = new Map();
 const INPUT_PADDING = 6; // Padding for the input container
 
 sliders.forEach((slider) => {
@@ -10,7 +9,6 @@ sliders.forEach((slider) => {
     const maxValue = parseInt(slider.max);
     const digits = Math.max(2, maxValue.toString().length);
     const rollingCounter = new RollingCounter(rollingCounterDisplay, digits);
-    rollingCounters.set(slider.id, rollingCounter);
 
     const initialValue = parseInt(slider.value);
     rollingCounter.setNumber(initialValue, unit, false);
@@ -20,7 +18,7 @@ sliders.forEach((slider) => {
         const unit = slider.dataset.unit;
 
         rollingCounter.setNumber(value, unit, true);
-        
+
         const min = parseFloat(slider.min);
         const max = parseFloat(slider.max);
         const step = parseFloat(slider.step) || 1;
@@ -45,8 +43,7 @@ sliders.forEach((slider) => {
         requestAnimationFrame(() => {
             const rollingCounterWidth = rollingCounterDisplay.offsetWidth;
             const displayWidth = targetWidth;
-            const availableSpace = displayWidth - 20;
-
+            const availableSpace = displayWidth - 12;   
             if (rollingCounterWidth > availableSpace) {
                 rollingCounterDisplay.style.transform = `translate(${displayWidth}px, -50%)`;
             } else {

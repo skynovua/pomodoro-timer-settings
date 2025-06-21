@@ -183,6 +183,7 @@ input[type="range"]:active ~ .value-display::after {
   align-items: center;
   gap: 1px;
   padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
   top: 50%;
   transform: translateY(-50%);
   display: inline-block;
