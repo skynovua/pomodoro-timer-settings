@@ -40,7 +40,6 @@ sliders.forEach((slider) => {
 
         // Use RollingCounter's method to get expected width
         const expectedRollingCounterWidth = rollingCounter.getExpectedWidth(value, unit);
-        console.log('expectedRollingCounterWidth:', expectedRollingCounterWidth);
         
         const displayWidth = targetWidth;
         const availableSpace = displayWidth - 12;   
