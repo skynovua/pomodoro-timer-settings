@@ -99,4 +99,15 @@ class RollingCounter {
         
         this.currentValue = numValue;
     }
+
+    // New method to calculate expected width
+    getExpectedWidth(value, unit = '') {
+        const numValue = parseInt(value) || 0;
+        const actualDigits = Math.max(1, numValue.toString().length);
+        const digitWidth = 8; // Same as in setNumber
+        const padding = 16; // Left + right padding from CSS (8px each side)
+        const unitWidth = unit.length * 6; // Approximate character width for unit
+        
+        return actualDigits * digitWidth + padding + unitWidth;
+    }
 }

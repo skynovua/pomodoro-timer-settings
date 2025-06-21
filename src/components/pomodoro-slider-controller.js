@@ -17,8 +17,6 @@ sliders.forEach((slider) => {
         const value = parseInt(slider.value);
         const unit = slider.dataset.unit;
 
-        rollingCounter.setNumber(value, unit, true);
-
         const min = parseFloat(slider.min);
         const max = parseFloat(slider.max);
         const step = parseFloat(slider.step) || 1;
@@ -40,16 +38,20 @@ sliders.forEach((slider) => {
 
         display.style.width = `${targetWidth}px`;
 
-        requestAnimationFrame(() => {
-            const rollingCounterWidth = rollingCounterDisplay.offsetWidth;
-            const displayWidth = targetWidth;
-            const availableSpace = displayWidth - 12;   
-            if (rollingCounterWidth > availableSpace) {
-                rollingCounterDisplay.style.transform = `translate(${displayWidth}px, -50%)`;
-            } else {
-                rollingCounterDisplay.style.transform = 'translate(0, -50%)';
-            }
-        });
+        // Use RollingCounter's method to get expected width
+        const expectedRollingCounterWidth = rollingCounter.getExpectedWidth(value, unit);
+        console.log('expectedRollingCounterWidth:', expectedRollingCounterWidth);
+        
+        const displayWidth = targetWidth;
+        const availableSpace = displayWidth - 12;   
+        
+        if (expectedRollingCounterWidth > availableSpace) {
+            rollingCounterDisplay.style.transform = `translate(${displayWidth}px, -50%)`;
+        } else {
+            rollingCounterDisplay.style.transform = 'translate(0, -50%)';
+        }
+
+        rollingCounter.setNumber(value, unit, true);
 
         display.style.opacity = '1';
         display.style.left = `${INPUT_PADDING / 2}px`;
